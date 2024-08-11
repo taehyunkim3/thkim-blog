@@ -2,7 +2,9 @@
 import { usePathname, useRouter } from 'next/navigation'
 
 import GitHubIcon from '@/assets/svg/github.svg'
+import { GITHUB_URL } from '@/consts/url'
 
+import ThemeChanger from '../button/theme-changer'
 import { Button } from '../ui/button'
 const NAV_ITEMS = [
   //   { name: 'Home', href: '/' },
@@ -34,13 +36,14 @@ const MainTopNav = () => {
         ))}
       </div>
 
-      <div>
+      <div className="flex items-center gap-3">
+        <ThemeChanger />
         <Button
-          onClick={() => router.push('/login')}
+          onClick={() => router.push(GITHUB_URL)}
           variant="ghost"
           size="icon"
         >
-          <GitHubIcon fill="gray" />
+          <GitHubIcon fill="gray" width={30} height={30} />
         </Button>
       </div>
     </nav>
